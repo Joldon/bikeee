@@ -1,17 +1,16 @@
-import React from 'react'
+
 import bikesData from './bikes.json'
 
-// const Bikes = './bikes.json'
-// console.log(Bikes)
+const getModels = bikesData.map(a => a.Model) //extracts the Model value from a given array
+const getAggregated = getModels.map(x => x.replaceAll('-', '').replace(/\s+/g, '').toLowerCase()) //standarzises/unifies various spellings of the same models
 
-// use reduce groupBy function to determine the most popular models
-// filter three items most frequently occurring in the array. 
-// filter function should filter out only three most popular items
-// test functions
-// combine (reduce?) various similar spellings of some bike models
+const countFrequency = getAggregated.reduce((acc, value) => ({
+    ...acc,
+    [value]: (acc[value] || 0) + 1
+ }), {}); // calculates the frequency of occurrences of similar strings in a given array
 
-const PopularBikes = (objectArray, property) => {
-  return objectArray.reduce
-}
-
+  const PopularBikes = Object.keys(countFrequency).sort((a,b) => countFrequency[b]-countFrequency[a]) // sorts the frequency of occurrences in a descending order
+  
 export default PopularBikes
+
+
