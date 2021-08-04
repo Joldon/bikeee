@@ -1,15 +1,13 @@
+import React from 'react'
 import './App.css';
 import Header from './components/Header'
-import PopularBikes from './components/PopularBikes'
-
-import Card from 'react-bootstrap/Card'
+import {BikeInfo} from './components/BikeInfo'
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Card />
-      <PopularBikes />
+      <BikeInfo />
     </div>
   );
 }
